@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Oak & Bean Café</title>
+
+<style>
+:root {
+  --coffee: #6f4e37;
+  --cream: #f6f1ea;
+  --accent: #c89f5b;
+  --text: #2b2b2b;
+  --card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+}
+
+.hero span {
+  color: var(--accent);
+}
+
+.hero p {
+  max-width: 600px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 22px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--coffee);
+}
+
+/* ABOUT */
+.about {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* MENU */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.menu-box {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.menu-box h3 {
+  margin-bottom: 10px;
+  color: var(--coffee);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.price {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* GALLERY (FIXED PROPER GRID) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* REVIEWS */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.review {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.review span {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* CONTACT */
+.contact {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  text-align: center;
+  line-height: 2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 20px auto 0;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Oak & <span>Bean</span></h1>
+  <p>Specialty coffee, artisan pastries, and a calm space to relax or work.</p>
+  <button class="btn" onclick="scrollToContact()">Visit Us</button>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <h2>About Us</h2>
+  <p class="about">
+    Established in <strong>2018</strong>, Oak & Bean Café is a modern coffee house known for high-quality
+    specialty coffee, fresh pastries, and a relaxing atmosphere. We focus on ethically sourced beans,
+    handcrafted drinks, and creating a welcoming space for everyone.
+  </p>
+</section>
+
+<!-- MENU -->
+<section>
+  <h2>Menu</h2>
+
+  <div class="menu">
+    <div class="menu-box">
+      <h3>Hot Drinks</h3>
+      <div class="item"><span>Espresso</span><span class="price">£2.80</span></div>
+      <div class="item"><span>Flat White</span><span class="price">£3.20</span></div>
+      <div class="item"><span>Cappuccino</span><span class="price">£3.40</span></div>
+      <div class="item"><span>Latte</span><span class="price">£3.50</span></div>
+    </div>
+
+    <div class="menu-box">
+      <h3>Cold Drinks</h3>
+      <div class="item"><span>Iced Latte</span><span class="price">£3.80</span></div>
+      <div class="item"><span>Cold Brew</span><span class="price">£3.90</span></div>
+      <div class="item"><span>Iced Mocha</span><span class="price">£4.20</span></div>
+    </div>
+
+    <div class="menu-box">
+      <h3>Pastries</h3>
+      <div class="item"><span>Croissant</span><span class="price">£2.80</span></div>
+      <div class="item"><span>Muffin</span><span class="price">£2.90</span></div>
+      <div class="item"><span>Brownie</span><span class="price">£3.10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2>Gallery</h2>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" />
+    <img src="https://images.unsplash.com/photo-1504753793650-d4a2b783c15e" />
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" />
+    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" />
+    <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919" />
+    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31" />
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <h2>Reviews</h2>
+
+  <div class="reviews">
+    <div class="review">
+      <p>“Best café in town. The coffee is always perfect.”</p>
+      <span>★★★★★ - Emily R.</span>
+    </div>
+
+    <div class="review">
+      <p>“Great atmosphere to study and relax. Love it here.”</p>
+      <span>★★★★★ - James T.</span>
+    </div>
+
+    <div class="review">
+      <p>“Staff are amazing and the pastries are fresh every day.”</p>
+      <span>★★★★★ - Sarah K.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Visit Us</h2>
+
+  <p><strong>Oak & Bean Café</strong></p>
+  <p>123 High Street, London</p>
+  <p>📞 020 7946 0823</p>
+  <p>Mon–Sat: 7:30am – 6:00pm</p>
+
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Oak & Bean Café
+</footer>
+
+<script>
+function scrollToContact() {
+  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
