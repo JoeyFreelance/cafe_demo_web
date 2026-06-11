@@ -841,6 +841,11 @@
       <a href="#visit" class="btn-ghost">Find Us →</a>
     </div>
   </div>
+  <!-- Hero placeholder: hidden once hero-bg.jpg loads -->
+  <div id="heroPh" style="position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;pointer-events:none">
+    <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(181,98,42,0.2)" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    <span style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:rgba(181,98,42,0.3)">hero&#8209;bg.jpg</span>
+  </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
     <span>Scroll</span>
@@ -871,19 +876,13 @@
           </div>
         </div>
       </div>
-      <div class="about-image reveal reveal-delay-2">
-        <!-- REPLACE src with your image, e.g. src="about.jpg" -->
-        <img src="" alt="Barista crafting coffee at Oak & Bean" onerror="this.style.display='none'" style="display:none">
-        <svg viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:520px;display:block;border-radius:4px;" id="placeholder-about">
-          <rect width="600" height="520" fill="#2E1A0E"/>
-          <rect x="240" y="200" width="120" height="120" rx="60" fill="none" stroke="#B5622A" stroke-width="1.5" opacity="0.5"/>
-          <line x1="300" x2="300" y1="160" y2="195" stroke="#B5622A" stroke-width="1.5" opacity="0.4"/>
-          <line x1="300" x2="300" y1="325" y2="360" stroke="#B5622A" stroke-width="1.5" opacity="0.4"/>
-          <line x1="160" x2="235" y1="260" y2="260" stroke="#B5622A" stroke-width="1.5" opacity="0.4"/>
-          <line x1="365" x2="440" y1="260" y2="260" stroke="#B5622A" stroke-width="1.5" opacity="0.4"/>
-          <text x="300" y="268" text-anchor="middle" fill="#B5622A" font-family="serif" font-size="13" opacity="0.7">Your Photo Here</text>
-          <text x="300" y="288" text-anchor="middle" fill="#7A6E64" font-family="sans-serif" font-size="11" opacity="0.6">about.jpg</text>
-        </svg>
+      <div class="about-image reveal reveal-delay-2" style="position:relative">
+        <!-- REPLACE: place about.jpg next to index.html -->
+        <div id="aboutPh" style="width:100%;height:520px;background:#2E1A0E;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.4"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span style="font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(181,98,42,0.45)">about.jpg</span>
+        </div>
+        <img src="about.jpg" alt="Barista crafting coffee at Oak & Bean" id="aboutImg" style="display:none;width:100%;height:520px;object-fit:cover;border-radius:4px;background:#2E1A0E" onload="this.style.display='block';document.getElementById('aboutPh').style.display='none'">
         <div class="about-image-accent"></div>
       </div>
     </div>
@@ -959,12 +958,48 @@
   </div>
   <div class="gallery-strip reveal">
     <!-- REPLACE each src with your image file, e.g. src="gallery-1.jpg" -->
-    <img src="gallery-1.jpg" alt="Oak & Bean interior" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-1.jpg','Interior'),this)">
-    <img src="gallery-2.jpg" alt="Latte art" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-2.jpg','Latte Art'),this)">
-    <img src="gallery-3.jpg" alt="Cosy corner seating" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-3.jpg','Seating'),this)">
-    <img src="gallery-4.jpg" alt="Espresso pour" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-4.jpg','Espresso'),this)">
-    <img src="gallery-5.jpg" alt="Coffee beans" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-5.jpg','Beans'),this)">
-    <img src="gallery-6.jpg" alt="Barista at work" onerror="this.parentNode.replaceChild(makePlaceholder('gallery-6.jpg','Barista'),this)">
+    <!-- REPLACE: place gallery-1.jpg next to index.html -->
+    <div id="ph-gallery-1.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Interior</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-1.jpg</span>
+    </div>
+    <img src="gallery-1.jpg" alt="Oak & Bean interior" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-1.jpg').style.display='none'">
+    <!-- REPLACE: place gallery-2.jpg next to index.html -->
+    <div id="ph-gallery-2.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Latte Art</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-2.jpg</span>
+    </div>
+    <img src="gallery-2.jpg" alt="Latte art" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-2.jpg').style.display='none'">
+    <!-- REPLACE: place gallery-3.jpg next to index.html -->
+    <div id="ph-gallery-3.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Seating</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-3.jpg</span>
+    </div>
+    <img src="gallery-3.jpg" alt="Cosy corner seating" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-3.jpg').style.display='none'">
+    <!-- REPLACE: place gallery-4.jpg next to index.html -->
+    <div id="ph-gallery-4.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Espresso</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-4.jpg</span>
+    </div>
+    <img src="gallery-4.jpg" alt="Espresso pour" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-4.jpg').style.display='none'">
+    <!-- REPLACE: place gallery-5.jpg next to index.html -->
+    <div id="ph-gallery-5.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Beans</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-5.jpg</span>
+    </div>
+    <img src="gallery-5.jpg" alt="Coffee beans" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-5.jpg').style.display='none'">
+    <!-- REPLACE: place gallery-6.jpg next to index.html -->
+    <div id="ph-gallery-6.jpg" style="width:100%;height:280px;background:#2E1A0E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.35"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(181,98,42,0.4)">Barista</span>
+      <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;color:rgba(181,98,42,0.2)">gallery-6.jpg</span>
+    </div>
+    <img src="gallery-6.jpg" alt="Barista at work" style="display:none;width:100%;height:280px;object-fit:cover;flex-shrink:0;filter:saturate(0.85);transition:transform 0.6s,filter 0.4s" onload="this.style.display='block';document.getElementById('ph-gallery-6.jpg').style.display='none'">
   </div>
   <div style="height: 4rem;"></div>
 </section>
@@ -1132,36 +1167,12 @@
     });
   }
 
-  // Placeholder SVG generator for gallery
-  function makePlaceholder(filename, label) {
-    const ns = 'http://www.w3.org/2000/svg';
-    const svg = document.createElementNS(ns, 'svg');
-    svg.setAttribute('viewBox', '0 0 300 280');
-    svg.setAttribute('style', 'width:100%;height:280px;display:block;background:#2E1A0E');
-    svg.innerHTML = `
-      <rect width="300" height="280" fill="#2E1A0E"/>
-      <rect x="110" y="90" width="80" height="80" rx="40" fill="none" stroke="#B5622A" stroke-width="1.2" opacity="0.45"/>
-      <line x1="150" x2="150" y1="60" y2="86" stroke="#B5622A" stroke-width="1.2" opacity="0.35"/>
-      <line x1="150" x2="150" y1="174" y2="200" stroke="#B5622A" stroke-width="1.2" opacity="0.35"/>
-      <line x1="80" x2="106" y1="130" y2="130" stroke="#B5622A" stroke-width="1.2" opacity="0.35"/>
-      <line x1="194" x2="220" y1="130" y2="130" stroke="#B5622A" stroke-width="1.2" opacity="0.35"/>
-      <text x="150" y="136" text-anchor="middle" fill="#B5622A" font-family="serif" font-size="11" opacity="0.7">${label}</text>
-      <text x="150" y="152" text-anchor="middle" fill="#5a504a" font-family="sans-serif" font-size="9" opacity="0.7">${filename}</text>`;
-    return svg;
-  }
-
-  // About image swap: show SVG placeholder until real image loads
-  const aboutImg = document.querySelector('.about-image img');
-  const aboutSvg = document.getElementById('placeholder-about');
-  if (aboutImg && aboutSvg) {
-    const realSrc = 'about.jpg';
-    const testImg = new Image();
-    testImg.onload = () => {
-      aboutImg.src = realSrc;
-      aboutImg.style.display = 'block';
-      aboutSvg.style.display = 'none';
-    };
-    testImg.src = realSrc;
+  // Hide hero placeholder when bg image loads
+  const heroPh = document.getElementById('heroPh');
+  if (heroPh) {
+    const t = new Image();
+    t.onload = () => { heroPh.style.display = 'none'; };
+    t.src = 'hero-bg.jpg';
   }
 
   // Form submit
